@@ -3,6 +3,7 @@ const clickButton = document.getElementById("my-button");
 clickButton.addEventListener("click", function () {
   console.log("hello world");
 
+  // Found from
   // https://stackoverflow.com/questions/9529327/change-the-value-of-h1-element-within-a-form-with-javascript
 
   if (document.getElementById("titleText").innerHTML === "Moi maailma") {
@@ -12,6 +13,7 @@ clickButton.addEventListener("click", function () {
   }
 });
 
+// Found from
 // https://stackoverflow.com/questions/20673959/how-to-add-new-li-to-ul-onclick-with-javascript
 
 const addTextButton = document.getElementById("add-data");
