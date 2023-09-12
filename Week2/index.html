@@ -21,17 +21,11 @@
           <td>Koodarikaisa</td>
           <td>kod3@myspace.com</td>
           <td>X</td>
-          <td>
-            <button>upload</button>
-          </td>
         </tr>
         <tr>
           <td>Pekkalainen</td>
           <td>kokkeli@myspace.com</td>
           <td></td>
-          <td>
-            <button>upload</button>
-          </td>
         </tr>
       </tbody>
     </table>
@@ -42,8 +36,16 @@
       <input type="email" id="input-email" />
       <label for="input-admin">Admin</label>
       <input type="checkbox" id="input-admin" />
+      <input
+        type="file"
+        id="input-image"
+        name="input-image"
+        accept="image/png, image/jpg"
+      />
       <input id="submit-data" type="submit" value="lähetä" />
     </form>
     <button id="empty-table" value="Delete">Reset</button>
   </body>
 </html>
+
+<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file -->
