@@ -20,7 +20,24 @@ submit.addEventListener("click", function (event) {
   let username = document.getElementById("input-username").value;
   let email = document.getElementById("input-email").value;
   let admin = document.getElementById("input-admin").checked ? "X" : " ";
-  let image = document.getElementById("input-image").value;
+  // let image = document.getElementById("input-image").value;
+
+  // ----------------------------
+
+  let imageInput = document.getElementById("input-image");
+  let selectedImage = imageInput.files[0]; // Valittu kuva
+
+  let img = document.createElement("img");
+  if (selectedImage) {
+    img.src = URL.createObjectURL(selectedImage); // Luo URL-osoite kuvan näyttämiseen
+    img.width = 64;
+    img.height = 64;
+  }
+
+  imageCell.innerHTML = ""; // Tyhjennä solu ennen kuin lisäät kuvan
+  imageCell.appendChild(img); // Lisää kuva soluun
+
+  // -----------------------
 
   let usernameExists = false;
 
@@ -47,7 +64,13 @@ submit.addEventListener("click", function (event) {
     usernameCell.innerHTML = username;
     emailCell.innerHTML = email;
     adminCell.innerHTML = admin;
-    imageCell.innerHTML = image;
+
+    /*
+    const img = document.createElement("img");
+    img.src = image;
+    imageCell.innerHTML = "";
+    imageCell.appendChild(img);
+    */
   }
 
   form.reset();
