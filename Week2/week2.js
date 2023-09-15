@@ -20,24 +20,19 @@ submit.addEventListener("click", function (event) {
   let username = document.getElementById("input-username").value;
   let email = document.getElementById("input-email").value;
   let admin = document.getElementById("input-admin").checked ? "X" : " ";
-  // let image = document.getElementById("input-image").value;
-
-  // ----------------------------
 
   let imageInput = document.getElementById("input-image");
-  let selectedImage = imageInput.files[0]; // Valittu kuva
+  let selectedImage = imageInput.files[0];
 
   let img = document.createElement("img");
   if (selectedImage) {
-    img.src = URL.createObjectURL(selectedImage); // Luo URL-osoite kuvan näyttämiseen
+    img.src = URL.createObjectURL(selectedImage);
     img.width = 64;
     img.height = 64;
   }
 
   imageCell.innerHTML = ""; // Tyhjennä solu ennen kuin lisäät kuvan
   imageCell.appendChild(img); // Lisää kuva soluun
-
-  // -----------------------
 
   let usernameExists = false;
 
@@ -57,6 +52,8 @@ submit.addEventListener("click", function (event) {
         ? "X"
         : " ";
 
+      table.deleteRow(table.rows.length - 1);
+
       break;
     }
   }
@@ -64,13 +61,6 @@ submit.addEventListener("click", function (event) {
     usernameCell.innerHTML = username;
     emailCell.innerHTML = email;
     adminCell.innerHTML = admin;
-
-    /*
-    const img = document.createElement("img");
-    img.src = image;
-    imageCell.innerHTML = "";
-    imageCell.appendChild(img);
-    */
   }
 
   form.reset();
@@ -79,18 +69,15 @@ submit.addEventListener("click", function (event) {
 // https://stackoverflow.com/questions/63335136/how-to-add-a-button-to-clear-all-table-rows
 // https://stackoverflow.com/questions/60804476/how-to-empty-table-in-javascript
 
+// https://www.w3schools.com/jsref/met_table_deleterow.asp
+
 const deleteData = document.getElementById("empty-table");
 
 deleteData.addEventListener("click", function () {
-  for (var i = 1; i < table.rows.length; i++) {
-    table.rows[i].innerHTML = "";
+  const rowCount = table.rows.length;
 
-    /*
-    table.rows[i].cells[0].innerHTML = "";
-    table.rows[i].cells[1].innerHTML = "";
-    table.rows[i].cells[2].innerHTML = "";
-
-    */
+  for (let i = rowCount - 1; i > 0; i--) {
+    table.deleteRow(i);
   }
 });
 
