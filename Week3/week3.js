@@ -1,5 +1,5 @@
-const municipalities = document.getElementById("municipality");
-const mpopulations = document.getElementById("population");
+// ChatGPT:tä käytetty keskustelumuodossa, jotta ymmärsin kuinka päästä syvälle nestattuihin tietoihin. En lukenut ohjeita kunnolla,
+// loput ohjeet täältä https://www.youtube.com/watch?v=fbLE9RQjHkk
 
 async function getMunicipalityAndPopulation() {
   const munUrl =
@@ -26,6 +26,7 @@ async function getMunicipalityAndPopulation() {
     td1.innerText = municipalityName;
 
     const populationCode = pJSON.dataset.dimension.Alue.category.index[code];
+    console.log(populationCode);
     const population = pJSON.dataset.value[populationCode];
 
     td2.innerText = population;
