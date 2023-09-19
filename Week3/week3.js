@@ -29,6 +29,7 @@ async function getMunicipalityAndPopulation() {
     let td1 = document.createElement("td");
     let td2 = document.createElement("td");
     let td3 = document.createElement("td");
+    let td4 = document.createElement("td");
 
     td1.innerText = municipalityName;
 
@@ -42,9 +43,17 @@ async function getMunicipalityAndPopulation() {
 
     td3.innerText = employment;
 
+    const percentage = (employment / population) * 100 + "%";
+
+    const roundPercentage = (Math.round(percentage * 100) / 100).toFixed(2);
+
+    console.log(typeof roundPercentage);
+    td4.innerText = roundPercentage;
+
     tr.appendChild(td1);
     tr.appendChild(td2);
     tr.appendChild(td3);
+    tr.appendChild(td4);
     tbody.appendChild(tr);
   }
 }
