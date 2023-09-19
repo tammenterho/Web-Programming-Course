@@ -45,7 +45,7 @@ async function getMunicipalityAndPopulation() {
 
     const percentage = (employment / population) * 100;
 
-    const roundPercentage = parseFloat(percentage.toFixed(2));
+    const roundPercentage = parseFloat(percentage);
 
     console.log(typeof roundPercentage);
     td4.innerText = roundPercentage.toFixed(2) + "%";
@@ -57,5 +57,6 @@ async function getMunicipalityAndPopulation() {
     tbody.appendChild(tr);
   }
 }
+// https://stackoverflow.com/questions/6134039/format-number-to-always-show-2-decimal-places
 
 getMunicipalityAndPopulation();
