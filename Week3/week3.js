@@ -47,6 +47,14 @@ async function getMunicipalityAndPopulation() {
 
     const roundPercentage = parseFloat(percentage);
 
+    //https://stackoverflow.com/questions/197748/how-do-i-change-the-background-color-with-javascript
+
+    if (roundPercentage > 45) {
+      tr.style.backgroundColor = "#abffbd";
+    } else if (roundPercentage < 25) {
+      tr.style.backgroundColor = "#ff9e9e";
+    }
+
     console.log(typeof roundPercentage);
     td4.innerText = roundPercentage.toFixed(2) + "%";
 
