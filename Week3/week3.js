@@ -43,12 +43,12 @@ async function getMunicipalityAndPopulation() {
 
     td3.innerText = employment;
 
-    const percentage = (employment / population) * 100 + "%";
+    const percentage = (employment / population) * 100;
 
-    const roundPercentage = (Math.round(percentage * 100) / 100).toFixed(2);
+    const roundPercentage = parseFloat(percentage.toFixed(2));
 
     console.log(typeof roundPercentage);
-    td4.innerText = roundPercentage;
+    td4.innerText = roundPercentage.toFixed(2) + "%";
 
     tr.appendChild(td1);
     tr.appendChild(td2);
