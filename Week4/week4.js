@@ -1,5 +1,21 @@
-async function getTvShow() {
-  const tvUrl = "https://api.tvmaze.com/search/shows?q=friends";
+const form = document.querySelector("form");
+form.addEventListener("submit", async function (event) {
+  event.preventDefault(); // Estä lomakkeen oletustoiminto
+
+  const inputShow = document.getElementById("input-show").value;
+
+  console.log(inputShow);
+
+  if (!inputShow) {
+    alert("Syötä TV-sarjan nimi ennen hakemista.");
+    return;
+  }
+
+  // Kutsu getTvShow-funktiota vasta tässä vaiheessa
+  await getTvShow(inputShow);
+});
+async function getTvShow(inputShow) {
+  const tvUrl = `https://api.tvmaze.com/search/shows?q=${inputShow}`;
   const tvPromise = await fetch(tvUrl);
   const tvJson = await tvPromise.json();
 
@@ -39,5 +55,3 @@ async function getTvShow() {
   divData.appendChild(divInfo);
   showContainer.appendChild(divData);
 }
-
-getTvShow();
