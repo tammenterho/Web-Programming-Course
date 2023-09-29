@@ -1,6 +1,6 @@
 const form = document.querySelector("form");
 form.addEventListener("submit", async function (event) {
-  event.preventDefault(); // Estä lomakkeen oletustoiminto
+  event.preventDefault();
 
   const inputShow = document.getElementById("input-show").value;
 
@@ -11,7 +11,6 @@ form.addEventListener("submit", async function (event) {
     return;
   }
 
-  // Kutsu getTvShow-funktiota vasta tässä vaiheessa
   await getTvShow(inputShow);
 });
 async function getTvShow(inputShow) {
