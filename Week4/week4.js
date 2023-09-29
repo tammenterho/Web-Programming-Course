@@ -6,8 +6,9 @@ async function getTvShow() {
   const showContainer = document.querySelector(".show-container");
 
   const showTitle = tvJson[0].show.name;
+  const showSummary = tvJson[0].show.summary;
   console.log(JSON.stringify(showTitle));
-  console.log(JSON.stringify(showTitle));
+  console.log(JSON.stringify(showSummary));
 
   let divData = document.createElement("div");
   let img = document.createElement("img");
@@ -17,7 +18,14 @@ async function getTvShow() {
 
   h1.innerText = showTitle;
 
+  const tempElement = document.createElement("div");
+  tempElement.innerHTML = showSummary;
+  const summaryText = tempElement.textContent;
+
+  p.innerText = summaryText;
+
   divInfo.appendChild(h1);
+  divInfo.appendChild(p);
   showContainer.appendChild(divInfo);
 }
 
